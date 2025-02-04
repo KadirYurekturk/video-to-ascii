@@ -20,5 +20,7 @@ This project captures video frames from your webcam and converts them into ASCII
 ### Setup Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/repo-name.git
-   cd repo-name
+   git clone https://github.com/KadirYurekturk/video-to-ascii.git
+   cd video-to-ascii
+   pip install -r requirements.txt
+   python main.py
