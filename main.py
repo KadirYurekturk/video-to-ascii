@@ -38,9 +38,9 @@ def frame_to_ascii(frame, output_width=149, brightness=100, contrast=28, invert=
     h, w, _ = frame.shape
     font_aspect_ratio = 0.55
     output_height = int((h / w) * output_width * font_aspect_ratio)
-    # Çerçeveyi ascii boyutlarına yeniden boyutlandır
+    # Yeniden boyutlandırma
     resized = cv2.resize(frame, (output_width, output_height))
-    # Gri tonlara çevir
+    # Gri tonlara çevirme
     gray = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY).astype(np.float32)
     if invert:
         gray = 255 - gray
@@ -76,7 +76,8 @@ def main():
                                  invert=False,
                                  dithering=True)
             os.system('cls' if os.name == 'nt' else 'clear')
-            print(art)
+            # Matrix tarzı yeşil yazı efekti için ANSI escape kodları kullanılır.
+            print("\033[32m" + art + "\033[0m")
             time.sleep(0.05)  # Yaklaşık 20 FPS
     except KeyboardInterrupt:
         pass
